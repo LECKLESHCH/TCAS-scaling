@@ -1,0 +1,264 @@
+body {
+  font-family: bookman old style, comic sans ms, TIMES NEW ROMAN;
+  background-color: #031c36;
+  overflow-x: hidden;
+}
+
+#plane {
+  position: absolute;
+  width: 50%;
+  top: 30%;
+  left: 30%;
+}
+#dn1 {
+  position: absolute;
+  width: 1.6%;
+  top: 0%;
+  left: 51%;
+  opacity: 0.3;
+  transform: rotate(0deg);
+  z-index: -20;
+  visibility: hidden;
+}
+#dn2 {
+  position: absolute;
+  width: 1.6%;
+  top: 40%;
+  left: 51%;
+  opacity: 0.3;
+  transform: rotate(0deg);
+  z-index: -20;
+  visibility: hidden;
+}
+#dn3 {
+  position: absolute;
+  width: 50%;
+  top: 34%;
+  left: 33.5%;
+  opacity: 0.3;
+  z-index: -20;
+  visibility: hidden;
+}
+#dn4 {
+  position: absolute;
+  width: 50%;
+  top: 15%;
+  left: 34%;
+  opacity: 0.3;
+  z-index: -20;
+  visibility: hidden;
+}
+#up {
+  position: absolute;
+  left: 50.7%;
+  width: 2.2%;
+  top: 33%;
+  cursor: pointer;
+}
+#up2 {
+  position: absolute;
+  left: 57.1%;
+  width: 2.2%;
+  top: 33%;
+  cursor: pointer;
+}
+#down {
+  position: absolute;
+  left: 57.1%;
+  width: 2.2%;
+  top: 65%;
+  cursor: pointer;
+}
+#down2 {
+  position: absolute;
+  left: 50.7%;
+  width: 2.2%;
+  top: 64.5%;
+  cursor: pointer;
+}
+#light {
+  position: absolute;
+  left: 52.1%;
+  width: 1.2%;
+  top: 56%;
+  cursor: pointer;
+}
+#text {
+  position: absolute;
+
+  color: white;
+  text-align: justify;
+  font-size: 120%;
+  width: 50%;
+  top: 80%;
+  border: 2px solid blue;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+#name {
+  position: absolute;
+  color: white;
+  right: 1%;
+  text-align: center;
+  font-size: 120%;
+
+  top: 80%;
+  border: 2px solid blue;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+@media (min-width: 1450px) {
+  #text {
+    text-align: justify;
+    font-size: 160%;
+  }
+  #name {
+    font-size: 160%;
+  }
+  #logo {
+    position: absolute;
+    top: 15%;
+    width: 12%;
+  }
+  .butsit {
+    font-size: 240%;
+  }
+}
+#tcas {
+  color: white;
+  font-size: 350%;
+  padding-left: 1%;
+}
+.button:hover {
+  border: 1.5px solid green;
+  transition: 0.3s;
+}
+#logo {
+  position: absolute;
+  top: 15%;
+  width: 15%;
+}
+#menu {
+  position: absolute;
+  right: 1%;
+  top: 5%;
+}
+.menuPoint {
+  text-decoration: none;
+  font-size: 140%;
+  color: white;
+}
+.menuPoint:hover {
+  text-shadow: 1px 2px 2px white;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.butsit {
+  position: absolute;
+  top: 85%;
+  font-size: 200%;
+  color: white;
+  border: 2px blue solid;
+  padding-left: 1%;
+  padding-right: 1%;
+  cursor: pointer;
+}
+.butsit:hover {
+  text-shadow: 1px 1px 1px white;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+#sit1 {
+  position: absolute;
+  left: 1%;
+}
+#sit2 {
+  position: absolute;
+  left: 43%;
+}
+#sit3 {
+  position: absolute;
+  right: 1%;
+}
+.pic {
+  position: absolute;
+  top: 10%;
+  width: 60%;
+  left: 20%;
+  border: 1px solid blue;
+}
+#p1 {
+  position: absolute;
+  width: 8%;
+  left: 21%;
+  top: 25%;
+  visibility: hidden;
+}
+#p2 {
+  position: absolute;
+  width: 8%;
+  left: 69%;
+  top: 25%;
+  visibility: hidden;
+}
+#p3 {
+  position: absolute;
+  width: 8%;
+  left: 35%;
+  top: 55%;
+  transform: rotate(-30deg);
+  visibility: hidden;
+}
+#p4 {
+  position: absolute;
+  width: 8%;
+  left: 60%;
+  visibility: hidden;
+}
+#p5 {
+  position: absolute;
+  width: 8%;
+  left: 22%;
+  top: 37%;
+  visibility: hidden;
+}
+#p6 {
+  position: absolute;
+  width: 8%;
+  left: 71%;
+  top: 37%;
+  visibility: hidden;
+}
+#pic1 {
+  visibility: hidden;
+}
+#pic2 {
+  width: 35%;
+  left: 34%;
+  visibility: hidden;
+}
+#pic3 {
+  visibility: hidden;
+}
+#theory {
+  position: flex;
+  text-align: justify;
+  background-color: white;
+  margin-left: 15%;
+  margin-right: 15%;
+  font-size: 120%;
+  line-height: 150%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+#display {
+  width: 30%;
+}
+
+#zone {
+  width: 70%;
+}
+#zone2 {
+  width: 100%;
+}

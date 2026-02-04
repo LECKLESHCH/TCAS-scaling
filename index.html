@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="TCAS" charset="utf-8" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./styles/sim.css" />
+    <title>TCAS</title>
+    <script src="scripts/jquery-3.6.3.min.js"></script>
+    <!--<link href="pictures/favicon.ico" rel="shortcut icon" type="image/x-icon" />!-->
+  </head>
+  <body id="main1">
+    <div class="top">
+      <div class="logo-section">
+        <img src="images/logo.png" class="logo" id="logo" />
+        <h1 id="tcas">TCAS</h1>
+      </div>
+      <div class="menu-section">
+        <a href="index.html" class="menuPoint" id="main">Главная</a><br /><br />
+        <a href="situation.html" class="menuPoint" id="situation">Ситуации</a
+        ><br /><br />
+        <a href="sim.html" class="menuPoint">Симулятор</a><br /><br />
+        <a href="theory.html" class="menuPoint">Теория</a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="plane-show">
+        <img src="images/line.png" class="dn" id="dn1" value="0" />
+        <img src="images/line.png" class="dn" id="dn2" value="0" />
+        <img src="images/lines3.png" class="dn" id="dn3" value="0" />
+        <img src="images/lines5.png" class="dn" id="dn4" value="0" />
+        <img src="images/aircraft.png" class="plane" id="plane" />
+        <img src="images/upAnt.png" class="button" id="up" />
+        <img src="images/upAnt.png" class="button" id="up2" />
+        <img src="images/upAnt.png" class="button" id="down" />
+        <img src="images/upAnt.png" class="button" id="down2" />
+        <img src="images/light.png" class="button" id="light" />
+      </div>
+      <div class="text-cards">
+        <div id="text" class="text">
+          В комплект оборудования TCAS входят:
+          <label id="pc" value="0">компьютерный блок</label>, который
+          просчитывает варианты развития событий и определяет выдаваемые
+          команды, две приемопередающие
+          <label id="antena" value="0">антенны</label>, устанавливаемые<label
+            id="a1"
+            value="0"
+          >
+            сверху
+          </label>
+          и
+          <label id="a2" value="0">снизу</label>
+        </div>
+        <div id="name" class="text">
+          Программу разработали <br />курсанты группы П-22-6<br />Еронина Татьяна,
+          Ребрикова Варвара<br />2023г.
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="javas/click.js"></script>
+</html>

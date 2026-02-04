@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./styles/sim.css" />
+    <title>TCAS</title>
+  </head>
+  <body>
+    <div class="top">
+      <div class="logo-section">
+        <img src="images/logo.png" class="logo" id="logo" />
+        <h1 id="tcas">TCAS</h1>
+      </div>
+      <div class="menu-section">
+        <a href="index.html" class="menuPoint" id="main">Главная</a><br /><br />
+        <a href="situation.html" class="menuPoint" id="situation">Ситуации</a
+        ><br /><br />
+        <a href="sim.html" class="menuPoint">Симулятор</a><br /><br />
+        <a href="theory.html" class="menuPoint">Теория</a>
+      </div>
+    </div>
+    <main>
+      <div class="wigdets" id="screen2">
+        <div class="row">
+          <canvas width="500" height="500" id="screen"></canvas>
+          <div class="panel" id="panel">
+            <canvas width="385" height="75" id="miniscreen"></canvas>
+            <div
+              class="clicker round state3"
+              id="traffic"
+              data-states="2"
+            ></div>
+            <div class="clicker round state3" id="range"></div>
+            <div class="clicker round state2" id="angle"></div>
+            <div class="clicker round state1" id="source" data-states="2"></div>
+            <div class="clicker bround" id="lbround"></div>
+            <div class="clicker bround small" id="lsround"></div>
+            <div class="clicker bround" id="rbround"></div>
+            <div class="clicker bround small" id="rsround"></div>
+            <div class="clicker" id="mode"></div>
+            <div class="clicker" id="test"></div>
+            <div class="clicker square" id="switch"></div>
+            <div class="clicker square" id="ent"></div>
+            <div class="bulb" id="atc"></div>
+            <div class="bulb" id="fid"></div>
+            <div class="bulb hidden" id="xpndr"></div>
+          </div>
+        </div>
+        <div class="row sky">
+          <div class="mrow-a">
+            &uarr;&darr;
+            <b id="vsval">0</b> m/s
+          </div>
+          <div class="eman" id="em">
+            <div class="mrow" style="display: none">
+              <button id="importantButton"></button>
+            </div>
+            <div class="mrow">
+              <button id="incvs">Верт.<br />скорость<br />+</button>
+            </div>
+            <div class="mrow">
+              <button id="decvs">Верт.<br />скорость<br />-</button>
+            </div>
+          </div>
+          <canvas width="1737" height="702" id="modulation"></canvas>
+        </div>
+      </div>
+    </main>
+    <div class="hidden">
+      <img id="screen-black" src="./img/screen_black.bmp" />
+      <img id="screen-panel" src="./img/screen_panel.png" />
+      <img id="screen-off" src="./img/screen_off.bmp" />
+      <img id="screen-test" src="./img/screen_test.bmp" />
+      <img id="screen-above" src="./img/abv.bmp" />
+      <img id="screen-below" src="./img/blw.bmp" />
+      <img id="screen-6" src="./img/6.bmp" />
+      <img id="screen-12" src="./img/12.bmp" />
+      <img id="screen-40" src="./img/40.bmp" />
+      <img id="screen-ta-only" src="./img/ta_only.bmp" />
+      <img id="screen-tcas-off" src="./img/tcas_off.bmp" />
+      <img id="screen-scale" src="./img/scale.png" />
+      <img id="screen-arrow" src="./img/arrow.png" />
+      <img id="screen-zone" src="./img/screen_zone.png" />
+      <img id="screen-plane" src="./img/screen_plane.png" />
+      <img id="screen-plane0" src="./img/screen_plane0.png" />
+      <img id="screen-plane1" src="./img/screen_plane1.png" />
+      <img id="screen-plane2" src="./img/screen_plane2.png" />
+      <img id="screen-plane3" src="./img/screen_plane3.png" />
+      <img id="miniscreen-test" src="./img/d test.bmp" />
+      <img id="chr-v" src="./img/d v.bmp" />
+      <img id="chr-d" src="./img/d d.bmp" />
+      <img id="chr-a" src="./img/d a.bmp" />
+      <img id="chr-1" src="./img/d 1.bmp" />
+      <img id="chr-2" src="./img/d 2.bmp" />
+      <img id="chr-3" src="./img/d 3.bmp" />
+      <img id="chr-4" src="./img/d 4.bmp" />
+      <img id="chr-5" src="./img/d 5.bmp" />
+      <img id="chr-6" src="./img/d 6.bmp" />
+      <img id="chr-7" src="./img/d 7.bmp" />
+      <img id="chr-8" src="./img/d 8.bmp" />
+      <img id="chr-9" src="./img/d 9.bmp" />
+      <img id="chr-0" src="./img/d 0.bmp" />
+      <img id="modulation-plane" src="./img/plane.png" />
+      <img id="modulation-plane-t" src="./img/plane2.png" />
+      <img id="modulation-explosion" src="./img/explosion.png" />
+      <audio
+        id="tcastest"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_test.wav"
+      ></audio>
+      <audio
+        id="tcastestok"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_testok.wav"
+      ></audio>
+      <audio
+        id="tcasclimb"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_climb.wav"
+      ></audio>
+      <audio
+        id="tcasdescend"
+        preload="auto"
+        allow="autoplay"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_descend.wav"
+      ></audio>
+      <audio
+        id="tcasincclimb"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_incrclm.wav"
+      ></audio>
+      <audio
+        id="tcasincdescend"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_incrdsc.wav"
+      ></audio>
+      <audio
+        id="tcasnowclimb"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_clbnow.wav"
+      ></audio>
+      <audio
+        id="tcasnowdescend"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_dscnow.wav"
+      ></audio>
+      <audio
+        id="tcasclear"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_clrconf.wav"
+      ></audio>
+      <audio
+        id="tcastraffic"
+        allow="autoplay"
+        preload="auto"
+        volume="1.0"
+        src="./audio/PMDG_TCAS_traffic.wav"
+      ></audio>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/screen-calc.js"></script>
+    <script src="./js/linkedlist.js"></script>
+    <script src="./js/entity.js"></script>
+    <script src="./js/input.js"></script>
+
+    <script src="./js/screen.js"></script>
+    <script src="./js/miniscreen.js"></script>
+    <script src="./js/plane.js"></script>
+    <script src="./js/modulation.js"></script>
+  </body>
+</html>

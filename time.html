@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Clock</title>
+
+    <style>
+      body {
+        display: flex;
+        place-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Добавляем HTML-элемент <canvas> на свою страницу: -->
+
+    <canvas
+      id="canvas"
+      width="400"
+      height="400"
+      style="background-color: rgb(5, 33, 211)"
+    ></canvas>
+
+    <script>
+      // Создаем объект холста (let canvas) из элемента холста HTML:
+      const canvas = document.getElementById("canvas");
+
+      // Создаем 2D-объект для рисования на холсте:
+      const ctx = canvas.getContext("2d");
+
+      // Рассчитывем радиус часов, относительно высоты холста:
+      let radius = canvas.height / 2;
+
+      // Переназначаем положение объекта рисования в центр холста:
+      ctx.translate(radius, radius);
+
+      // Уменьшаем радиус часов (до 90%), чтобы лучше отобразить часы внутри холста:
+      radius = radius * 0.9;
+
+      // рисуем часы:
+      setInterval(drawClock, 1000);
+
+      function drawClock() {
+        ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+      }
+
+      // рисуем циферблат
+      function drawClock() {
+        drawFace(ctx, radius);
+        drawNumbers(ctx, radius);
+        drawTime(ctx, radius);
+      }
+
+      function drawFace(ctx, radius) {
+        let grad;
+
+        // циферблат
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = "white";
+        ctx.fill();
+
+        // окружность циферблата
+        grad = ctx.createRadialGradient(
+          0,
+          0,
+          radius * 0.95,
+          0,
+          0,
+          radius * 1.05
+        );
+        grad.addColorStop(0, "#777");
+        grad.addColorStop(0.5, "white");
+        grad.addColorStop(1, "#777");
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = radius * 0.1;
+        ctx.stroke();
+
+        // точка в центре
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+        ctx.fillStyle = "#00f";
+        ctx.fill();
+      }
+
+      // цифры на часах
+      function drawNumbers(ctx, radius) {
+        let ang;
+        let num;
+        // размер цифр на циферблате
+        ctx.font = radius * 0.2 + "px arial";
+
+        // установливаем выравнивание текста по середине и центру позиции печати:
+        ctx.textBaseline = "middle";
+        ctx.textAlign = "center";
+
+        // рисуем цифры по окружности
+        for (num = 1; num < 13; num++) {
+          angle = (num * Math.PI) / 6;
+          ctx.rotate(angle);
+          ctx.translate(0, -radius * 0.85);
+          ctx.rotate(-angle);
+          ctx.fillText(num.toString(), 0, 0);
+          ctx.rotate(angle);
+          ctx.translate(0, radius * 0.85);
+          ctx.rotate(-angle);
+        }
+      }
+
+      function drawTime(ctx, radius) {
+        let now = new Date();
+        let hour = now.getHours();
+        let minute = now.getMinutes();
+        let second = now.getSeconds();
+        // часовая стрелка
+        hour = hour % 12;
+        hour =
+          (hour * Math.PI) / 6 +
+          (minute * Math.PI) / (6 * 60) +
+          (second * Math.PI) / (360 * 60);
+        drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+        // минутная
+        minute = (minute * Math.PI) / 30 + (second * Math.PI) / (30 * 60);
+        drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+        // секундная
+        second = (second * Math.PI) / 30;
+        drawHand(ctx, second, radius * 0.9, radius * 0.02);
+      }
+
+      function drawHand(ctx, pos, length, width) {
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.lineCap = "round";
+        ctx.moveTo(0, 0);
+        ctx.rotate(pos);
+        ctx.lineTo(0, -length);
+        ctx.stroke();
+        ctx.rotate(-pos);
+      }
+    </script>
+  </body>
+</html>

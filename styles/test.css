@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: blueviolet;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.container {
+  width: 900px;
+  height: 100vw;
+  background-color: bisque;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.main {
+  width: 300px;
+  height: 100px;
+  border: 1px solid #999;
+  border-radius: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.canv {
+  width: 500px;
+  height: 500px;
+  box-shadow: 7px 7px 17px 5px rgb(83, 67, 46);
+  border-radius: 8px;
+  margin: 0 auto;
+  margin-top: 25px;
+  display: block;
+}
